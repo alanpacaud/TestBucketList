@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} Idea {% endblock %}
+
+{% block body %}
+    Menu : <a href="{{ path('home') }}">Accueil</a> OR <a href="{{ path('idea_list') }}">Idea</a>
+    <h1>The Bucket List : </h1>
+
+    {% for idea in ideas %}
+        {% if(idea.isPublished == 1) %}
+            <h3><a href="{{ path('idea_detail',{'id':idea.id}) }}"> {{ idea.title }}</a></h3>
+            <p>Crée le {{ idea.dateCreated|date('d m Y') }}</p> {#j F Y#}
+            <p>L'auteur est {{ idea.author }}.</p>
+            <p>L'idée consiste en: {{ idea.description }}</p>
+
+        {% endif %}
+    {% endfor %}
+    <button class="btn btn-primary">Going Somewhere else?</button>
+{% endblock %}

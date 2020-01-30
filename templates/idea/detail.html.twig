@@ -1,0 +1,14 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} Details {% endblock %}
+
+{% block body %}
+
+    <h1>Idée {{ idea.id }}</h1>
+
+    <h3><a href="{{ path('idea_detail',{'id':idea.id}) }}"> {{ idea.title }}</a></h3>
+    <p>Crée le {{ idea.dateCreated|date('d m Y') }}</p> {#j F Y#}
+    <p>L'auteur est {{ idea.author }}.</p>
+    <p>L'idée consiste en: {{ idea.description }}</p>
+
+{% endblock %}
